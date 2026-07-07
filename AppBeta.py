@@ -413,7 +413,7 @@ def encuesta():
 
 
 # MENU DE NAVEGACIÓN
-img = Image.open("Multimedia\Imagenes\LogoUnal.png")
+img = Image.open("Multimedia/Imagenes/LogoUnal.png")
 st.sidebar.image(img)
 
 st.sidebar.write("## Menú de Navegación")
