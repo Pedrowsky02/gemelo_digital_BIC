@@ -429,7 +429,7 @@ def datos():
         ejemplo = pd.DataFrame({
             "Tiempo (s)": [0, 10, 20, "..."],
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
-            "Temperatura Entrada Vapor (°C)" : [120, 120, 120,"..."]
+            "Temperatura Entrada Vapor (°C)" : [120, 120, 120,"..."],
             "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
 
