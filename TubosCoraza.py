@@ -102,64 +102,64 @@ def TubosyCoraza():
         
         st.table(comparacion_tc)
         
-#         st.divider()
+        st.divider()
         
-#         st.text("Seleccione la configuración")
+        st.text("Seleccione la configuración")
     
-#         col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3, col4 = st.columns(4)
 
-#         with col1:
-#             st.image("Multimedia/Imagenes/trianbafles.png", width="stretch")
+        with col1:
+            st.image("Multimedia/Imagenes/trianbafles.png", width="stretch")
 
-#             if st.button("Pitch Triangular - 1 Paso", width="stretch"):
-#                 st.session_state.Configuracion_TC = "Pitch Triangular - 1 Paso"
-#                 st.rerun()
+            if st.button("Pitch Triangular - 1 Paso", width="stretch"):
+                st.session_state.Configuracion_TC = "Pitch Triangular - 1 Paso"
+                st.rerun()
 
-#         with col2:
-#             st.image("Multimedia/Imagenes/trianbafles2.png", width="stretch")
+        with col2:
+            st.image("Multimedia/Imagenes/trianbafles2.png", width="stretch")
 
-#             if st.button("Pitch Triangular - 2 Paso", width="stretch"):
-#                 st.session_state.Configuracion_TC = "Pitch Triangular - 2 Paso"
-#                 st.rerun()
+            if st.button("Pitch Triangular - 2 Paso", width="stretch"):
+                st.session_state.Configuracion_TC = "Pitch Triangular - 2 Paso"
+                st.rerun()
 
-#         with col3:
-#             st.image("Multimedia/Imagenes/trianSINbafles.png", width="stretch")
+        with col3:
+            st.image("Multimedia/Imagenes/trianSINbafles.png", width="stretch")
 
-#             if st.button("Pitch Triangular - Sin Bafles", width="stretch"):
-#                 st.session_state.Configuracion_TC = "Pitch Triangular - Sin Bafles"
-#                 st.rerun()
+            if st.button("Pitch Triangular - Sin Bafles", width="stretch"):
+                st.session_state.Configuracion_TC = "Pitch Triangular - Sin Bafles"
+                st.rerun()
 
-#         with col4:
-#             st.image("Multimedia/Imagenes/cuadbafles.png", width="stretch")
+        with col4:
+            st.image("Multimedia/Imagenes/cuadbafles.png", width="stretch")
 
-#             if st.button("Pitch Cuadrado - 1 Paso", width="stretch"):
-#                 st.session_state.Configuracion_TC = "Pitch Cuadrado - 1 Paso"
-#                 st.rerun()
+            if st.button("Pitch Cuadrado - 1 Paso", width="stretch"):
+                st.session_state.Configuracion_TC = "Pitch Cuadrado - 1 Paso"
+                st.rerun()
 
-#     else:
-#         if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
-#             ho_vapor = 1200
-#             hi_agua = 900
-#             ho_agua = 700
+    else:
+        if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
+            ho_vapor = 1200
+            hi_agua = 900
+            ho_agua = 700
 
-#         elif st.session_state.Configuracion_TC == "Pitch Triangular - 2 Paso":
-#             ho_vapor = 1400
-#             hi_agua = 1100
-#             ho_agua = 850
+        elif st.session_state.Configuracion_TC == "Pitch Triangular - 2 Paso":
+            ho_vapor = 1400
+            hi_agua = 1100
+            ho_agua = 850
 
-#         elif st.session_state.Configuracion_TC == "Pitch Triangular - Sin Bafles":
-#             ho_vapor = 700
-#             hi_agua = 600
-#             ho_agua = 350
+        elif st.session_state.Configuracion_TC == "Pitch Triangular - Sin Bafles":
+            ho_vapor = 700
+            hi_agua = 600
+            ho_agua = 350
 
-#         elif st.session_state.Configuracion_TC == "Pitch Cuadrado - 1 Paso":
-#             ho_vapor = 1000
-#             hi_agua = 850
-#             ho_agua = 600
-# `
-#         if st.button("Cambiar configuración",width="stretch"):
-#             st.session_state.Configuracion_TC = None
-#             st.rerun()
+        elif st.session_state.Configuracion_TC == "Pitch Cuadrado - 1 Paso":
+            ho_vapor = 1000
+            hi_agua = 850
+            ho_agua = 600
+`
+        if st.button("Cambiar configuración",width="stretch"):
+            st.session_state.Configuracion_TC = None
+            st.rerun()
 
 #         if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
 #             col1,col2 = st.columns(2)
