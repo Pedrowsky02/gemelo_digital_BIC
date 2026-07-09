@@ -136,30 +136,30 @@ def TubosyCoraza():
                 st.session_state.Configuracion_TC = "Pitch Cuadrado - 1 Paso"
                 st.rerun()
 
-    else:
-        if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
-            ho_vapor = 1200
-            hi_agua = 900
-            ho_agua = 700
+    # else:
+#         if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
+#             ho_vapor = 1200
+#             hi_agua = 900
+#             ho_agua = 700
 
-        elif st.session_state.Configuracion_TC == "Pitch Triangular - 2 Paso":
-            ho_vapor = 1400
-            hi_agua = 1100
-            ho_agua = 850
+#         elif st.session_state.Configuracion_TC == "Pitch Triangular - 2 Paso":
+#             ho_vapor = 1400
+#             hi_agua = 1100
+#             ho_agua = 850
 
-        elif st.session_state.Configuracion_TC == "Pitch Triangular - Sin Bafles":
-            ho_vapor = 700
-            hi_agua = 600
-            ho_agua = 350
+#         elif st.session_state.Configuracion_TC == "Pitch Triangular - Sin Bafles":
+#             ho_vapor = 700
+#             hi_agua = 600
+#             ho_agua = 350
 
-        elif st.session_state.Configuracion_TC == "Pitch Cuadrado - 1 Paso":
-            ho_vapor = 1000
-            hi_agua = 850
-            ho_agua = 600
-`
-        if st.button("Cambiar configuración",width="stretch"):
-            st.session_state.Configuracion_TC = None
-            st.rerun()
+#         elif st.session_state.Configuracion_TC == "Pitch Cuadrado - 1 Paso":
+#             ho_vapor = 1000
+#             hi_agua = 850
+#             ho_agua = 600
+# `
+#         if st.button("Cambiar configuración",width="stretch"):
+#             st.session_state.Configuracion_TC = None
+#             st.rerun()
 
 #         if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
 #             col1,col2 = st.columns(2)
