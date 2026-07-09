@@ -395,12 +395,33 @@ def guia_usuario():
     st.write("# Guia Usuario")
     st.write("## Caracteristicas y Guia de Operación del Equipo")
     st.video("https://youtu.be/SD0bnFhfyRk")
-    st.write("## Instructivo del Gemelo Digital")
-    # Videos
-    # with open("Multimedia/Videos/Guia de operación.mp4", "rb") as video_file:
-    #     st.video(video_file.read())
 def datos():
     st.write("# Sube tus Datos")
+    st.selectbox("Seleccione la práctica de la cual posee datos:",[
+        "Tanque Agitado - Sin Agitación - Serpentin - Batch",
+        "Tanque Agitado - Sin Agitación - Serpentin - Semibatch",
+        "Tanque Agitado - Sin Agitación - Chaqueta - Batch",
+        "Tanque Agitado - Sin Agitación - Chaqueta - Semibatch",
+        "Tanque Agitado - Agitación Mecánica - Serpentin - Batch",
+        "Tanque Agitado - Agitación Mecánica - Serpentin - Semibatch",
+        "Tanque Agitado - Agitación Mecánica - Chaqueta - Batch",
+        "Tanque Agitado - Agitación Mecánica - Chaqueta - Semibatch",
+        "Horquillas - Vapor",
+        "Horquillas - Agua Caliente - Paralelo",
+        "Horquillas - Agua Caliente - Contraflujo",
+        "Tubos y Coraza - Triangular 1P - Vapor"
+        "Tubos y Coraza - Triangular 1P - Agua Caliente - Paralelo"
+        "Tubos y Coraza - Triangular 1P - Agua Caliente - Contraflujo"
+        "Tubos y Coraza - Triangular 2P - Vapor"
+        "Tubos y Coraza - Triangular 2P - Agua Caliente - Paralelo"
+        "Tubos y Coraza - Triangular 2P - Agua Caliente - Contraflujo"
+        "Tubos y Coraza - Triangular Sin Bafles - Vapor"
+        "Tubos y Coraza - Triangular Sin Bafles - Agua Caliente - Paralelo"
+        "Tubos y Coraza - Triangular Sin Bafles - Agua Caliente - Contraflujo"
+        "Tubos y Coraza - Cuadrado 1P - Vapor"
+        "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Paralelo"
+        "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Contraflujo"
+    ])
     st.components.v1.iframe(
     "https://docs.google.com/forms/d/e/1FAIpQLSdpfqkv7PBYpbR74cKSxK2SJrt90G01Q6qqp5mAQ3to0Ok8Hg/viewform?embedded=true",
     height=500,
