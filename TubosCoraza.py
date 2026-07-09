@@ -274,7 +274,7 @@ def TubosyCoraza():
             w = QAF/1e6 * rho_prom
 
             # Para vapor se desprecia la resistencia interna
-            U = ho_vapor
+            U = ho_agua
 
             t1 = TAF
 
