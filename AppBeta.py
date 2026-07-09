@@ -53,7 +53,7 @@ if "pagina" not in st.session_state:
     st.session_state.pagina = "inicio"
     
 def inicio():    
-    st.write("# Bienvenido al Banco de Intercambiadores Digital")
+    st.write("# Bienvenido al Banco de Intercambiadores de Calor Digital")
     st.text("Un gemelo digital del banco de intercambiadores de calor del laboratorio de ingeniería quimica de la UNAL, para aprender, enseñar y entrenar la transferencia de calor.")
     st.write("## Instructivo del Gemelo Digital")
     st.video("https://youtu.be/TU8fJsVeWc0")
@@ -400,6 +400,9 @@ def guia_usuario():
     # Videos
     # with open("Multimedia/Videos/Guia de operación.mp4", "rb") as video_file:
     #     st.video(video_file.read())
+def datos():
+    st.write("# Sube tus Datos")
+
 def encuesta():
     st.write("# Encuesta de Percepción")
     st.components.v1.iframe(
@@ -432,8 +435,13 @@ if st.sidebar.button("Documentación",width="stretch"):
 if st.sidebar.button("Guia de Usuario",width="stretch"):
     st.session_state.pagina = "Guia de Usuario"
 
+if st.sidebar.button("Sube tus Datos",width="stretch"):
+    st.session_state.pagina = "datos"
+
 if st.sidebar.button("Encuesta de Percepción",width="stretch"):
     st.session_state.pagina = "encuesta"
+
+
 
 
 
@@ -451,5 +459,7 @@ elif st.session_state.pagina == "Documentacion":
     documentacion()
 elif st.session_state.pagina == "Guia de Usuario":
     guia_usuario()
+elif st.session_state.pagina == "datos":
+    datos()
 elif st.session_state.pagina == "encuesta":
     encuesta()
