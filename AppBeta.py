@@ -429,7 +429,7 @@ def datos():
         ejemplo = pd.DataFrame({
             "Tiempo (s)": [0, 10, 20, "..."],
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
-            "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."]
+            "Temperatura Entrada Vapor (°C)" : [120, 120, 120,"..."]
         })
 
     # 2. Tanque Agitado - Sin Agitación - Semibatch
@@ -469,9 +469,11 @@ def datos():
         ejemplo = pd.DataFrame({
             "Longitud (m)": [0, 1, 2,"..."],
             "Temperatura Fluido Frio (°C)": [25, 40, 55,"..."],
-            "Flujo Alimentación Fluido Frio (mL/s)":  [200],
+            "Flujo Alimentación Fluido Frio (mL/s)":  [200,200,200,"..."],
             "Temperatura Entrada Vapor (°C)": [115, 115, 115,"..."]
         })
+        st.text("El flujo de alimentación y la temperatura de entrada del vapor deben permanecer constantes 
+                a lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice")
     
     # 6. Horquillas - Agua Caliente
     elif "Horquillas" in practica and "Agua Caliente" in practica:
@@ -481,7 +483,7 @@ def datos():
             "Temperatura Fluido Frio (°C)": [25, 40, 55,"..."],
             "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200, 200,"..."],
             "Temperatura Fluido Caliente (°C)": [25, 40, 55,"..."],
-            "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200, 200,"..."],
+            "Flujo Alimentación Fluido Caliente (mL/s)":  [150, 150, 150,"..."],
         })
     
     # 7. Tubos y Coraza - Vapor
