@@ -376,7 +376,7 @@ def TubosyCoraza():
                 st.warning(
                     f"El fluido frío alcanzó la temperatura de ebullición "
                     f"({T_eb:.1f} °C) a una longitud aproximada de "
-                    f"{L_evap:.2f} m."
+                    f"{L_evap:.5f} m."
                 )
     
                 st.warning(
