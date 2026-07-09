@@ -415,7 +415,7 @@ def TubosyCoraza():
         # AGUA CALIENTE
         # =====================================================
     
-        elif MetCal == "Agua Caliente":
+    elif MetCal == "Agua Caliente":
 
             w = QAF/1e6 * rho_prom
             W = QAC/1e6 * rho_prom
@@ -512,7 +512,6 @@ def TubosyCoraza():
                     T2 = T1 - (w/W)*(t2-t1)
         
                     def f(t):
-        
                         return (
                             U*Ap/(w*Cp_prom)
                             )*(
@@ -592,31 +591,24 @@ def TubosyCoraza():
             col1, col2 = st.columns(2)
         
             with col1:
-        
                 st.info(
                     f"Fluido frío: "
                     f"t₁ = {temp.1f} °C , "
                     f"t₂ = {temp[-1]:.1f} °C"
                 )
-        
             with col2:
-        
                 if ConfigFlow == "Contraflujo":
-        
                     st.info(
                         f"Fluido caliente: "
                         f"T₁ = {Temp[-1]:.1f} °C , "
                         f"T₂ = {Temp.1f} °C"
                         )
-    
                 else:
-        
                     st.info(
                         f"Fluido caliente: "
                         f"T₁ = {Temp.1f} °C , "
                         f"T₂ = {Temp[-1]:.1f} °C"
                     )
-        
             st.info(
                 "El perfil de temperatura se obtiene a partir de un modelo teórico. "
                 "Las temperaturas representativas para comparación experimental son "
