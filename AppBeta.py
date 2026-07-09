@@ -402,7 +402,7 @@ def guia_usuario():
 def datos():
     st.write("# Sube tus Datos")
     st.components.v1.iframe(
-    "https://docs.google.com/forms/d/e/1FAIpQLSdJrcXrSHAdHlfiyoNQ7d8w6PqWxPlCBdanUoLaA1jC3UBvAw/viewform?embedded=true",
+    "https://docs.google.com/forms/d/e/1FAIpQLSdpfqkv7PBYpbR74cKSxK2SJrt90G01Q6qqp5mAQ3to0Ok8Hg/viewform?embedded=true",
     height=500,
     scrolling=True
     )
