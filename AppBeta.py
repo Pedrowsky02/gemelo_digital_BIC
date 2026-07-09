@@ -55,10 +55,8 @@ if "pagina" not in st.session_state:
 def inicio():    
     st.write("# Bienvenido al Banco de Intercambiadores Digital")
     st.write("##### Un gemelo digital del banco de intercambiadores de calor del laboratorio de ingeniería quimica de la UNAL, para aprender, enseñar y entrenar la transferencia de calor.")
-    col1,col2,col3=st.columns([1,1,1])
-    
-    with col2:
-        st.image("Multimedia/Imagenes/gif.gif",width="stretch")
+    st.write("## Instructivo del Gemelo Digital")
+    st.video("https://youtu.be/TU8fJsVeWc0")
 
 def informacion_general():
     st.write("# Información General")
