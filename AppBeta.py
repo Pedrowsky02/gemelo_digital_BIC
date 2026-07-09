@@ -578,6 +578,7 @@ def guia_usuario():
             $$
             U=f(Q)
             $$
+            """)
     
     
         
