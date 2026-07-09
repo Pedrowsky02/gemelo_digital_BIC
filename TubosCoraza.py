@@ -8,6 +8,66 @@ def TubosyCoraza():
     # Pantalla de selección
     if st.session_state.Configuracion_TC is None:
 
+        
+     st.title("Intercambiadores de Tubos y Coraza")
+
+        # TABLA 1: Datos comunes
+        st.subheader("Especificaciones Generales")
+
+        datos_tc = pd.DataFrame({
+            "Parámetro": [
+                "Material de la coraza",
+                "Longitud de la coraza",
+                "Diámetro interno de la coraza",
+                "Diámetro externo de la coraza",
+                "Material de los tubos",
+                "Longitud de los tubos",
+                "Diámetro interno de los tubos",
+                "Diámetro externo de los tubos",
+                "Diámetro conexiones",
+                "Material de construcción"
+            ],
+            "Valor": [
+                "Acero inoxidable 304",
+                "60 cm",
+                "16.15 cm",
+                "16.83 cm",
+                "Acero inoxidable 304",
+                "60 cm",
+                "2.13 cm",
+                "1.708 cm",
+                '1/2" Sch 10',
+                "Acero inoxidable 304"
+            ]
+        })
+    
+        st.table(datos_tc)
+    
+        # TABLA 2: Diferencias
+        st.subheader("Configuraciones Disponibles")
+    
+        comparacion_tc = pd.DataFrame({
+            "Configuración": [
+                "Triangular 1 Paso",
+                "Triangular 2 Pasos",
+                "Triangular Sin Bafles",
+                "Cuadrado 1 Paso"
+            ],
+            "Arreglo": [
+                "Triangular",
+                "Triangular",
+                "Triangular",
+                "Cuadrado"
+            ],
+            "Pasos": [1, 2, 1, 1],
+            "Tubos": [16, 8, 16, 16],
+            "Bafles": [9, 9, 0, 9]
+        })
+    
+        st.table(comparacion_tc)
+    
+        st.divider()
+    
         st.text("Seleccione la configuración")
 
         col1, col2, col3, col4 = st.columns(4)
