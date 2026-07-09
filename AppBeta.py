@@ -430,6 +430,7 @@ def datos():
             "Tiempo (s)": [0, 10, 20, "..."],
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
             "Temperatura Entrada Vapor (°C)" : [120, 120, 120,"..."]
+            "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
 
     # 2. Tanque Agitado - Sin Agitación - Semibatch
@@ -440,6 +441,7 @@ def datos():
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
             "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
             "Volumen en el Tanque (mL/s)" : [200, 400, 500,"..."]
+            "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
 
     # 3. Tanque Agitado - Agitación Mecánica - Batch
@@ -450,6 +452,7 @@ def datos():
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
             "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
             "RPM": [60, 60, 60,"..."]
+            "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
     
     # 4. Tanque Agitado - Agitación Mecánica - Semibatch
@@ -461,6 +464,7 @@ def datos():
             "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
             "Volumen en el Tanque (mL/s)" : [200, 400, 500,"..."],
             "RPM": [60, 60, 60,"..."]
+            "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
     
     # 5. Horquillas - Vapor
@@ -470,9 +474,10 @@ def datos():
             "Longitud (m)": [0, 1, 2,"..."],
             "Temperatura Fluido Frio (°C)": [25, 40, 55,"..."],
             "Flujo Alimentación Fluido Frio (mL/s)":  [200,200,200,"..."],
-            "Temperatura Entrada Vapor (°C)": [115, 115, 115,"..."]
+            "Temperatura Entrada Vapor (°C)": [115, 115, 115,"..."],
+            "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
-        st.text("El flujo de alimentación y la temperatura de entrada del vapor deben permanecer constantesa lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice")
+        st.text("El flujo de alimentación y la temperatura de entrada del vapor deben permanecer constantes lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice.")
     
     
     # 6. Horquillas - Agua Caliente
@@ -483,26 +488,26 @@ def datos():
             "Temperatura Fluido Frio (°C)": [25, 40, 55,"..."],
             "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200, 200,"..."],
             "Temperatura Fluido Caliente (°C)": [25, 40, 55,"..."],
-            "Flujo Alimentación Fluido Caliente (mL/s)":  [150, 150, 150,"..."],
+            "Flujo Alimentación Fluido Caliente (mL/s)":  [150, 150, 150,"..."]
         })
-    
+        st.text("Los flujos de alimentación deben permanecer constantes lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice.")
     # 7. Tubos y Coraza - Vapor
     elif "Tubos y Coraza" in practica and "Vapor" in practica:
-    
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "T Producto (°C)": [25, 42, 58],
-            "Presión Vapor (bar)": [2, 2, 2]
+            "Temperatura Fluido Frio (°C)": [18, 60],
+            "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200],
+            "Temperatura Entrada Vapor (°C)": [25, 40],
+            "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."],
         })
-    
+        st.text("El flujo de alimentación y la temperatura de entrada del vapor deben permanecer constantes lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice.")
+
     # 8. Tubos y Coraza - Agua Caliente
     elif "Tubos y Coraza" in practica and "Agua Caliente" in practica:
-    
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "T Coraza Entrada (°C)": [80, 80, 80],
-            "T Coraza Salida (°C)": [70, 68, 65],
-            "T Tubos Salida (°C)": [35, 48, 60]
+            "Temperatura Fluido Frio (°C)": [18, 60],
+            "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200],
+            "Temperatura Fluido Caliente (°C)": [70, 20],
+            "Flujo Alimentación Fluido Caliente (mL/s)":  [400, 400],
         })
     
     st.write("### Ejemplo del formato esperado")
