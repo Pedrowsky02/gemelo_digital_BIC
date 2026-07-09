@@ -439,45 +439,49 @@ def datos():
             "Tiempo (s)": [0, 10, 20, "..."],
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
             "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
-            "Volumen en el Tanque (mL)" : [200, 400, 500,"..."],
+            "Volumen en el Tanque (mL/s)" : [200, 400, 500,"..."],
         })
 
     # 3. Tanque Agitado - Agitación Mecánica - Batch
     elif "Tanque Agitado" in practica and "Agitación Mecánica" in practica and "Batch" in practica:
     
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "T Producto (°C)": [25, 38, 50],
-            "RPM": [100, 100, 100]
+            "Tiempo (s)": [0, 10, 20, "..."],
+            "Temperatura Tanque (°C)": [25, 35, 45,"..."],
+            "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."]
+            "RPM": [60, 60, 60,"..."]
         })
     
     # 4. Tanque Agitado - Agitación Mecánica - Semibatch
     elif "Tanque Agitado" in practica and "Agitación Mecánica" in practica and "Semibatch" in practica:
     
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "Volumen (L)": [10, 15, 20],
-            "RPM": [100, 100, 100],
-            "T Producto (°C)": [25, 38, 50]
+            "Tiempo (s)": [0, 10, 20, "..."],
+            "Temperatura Tanque (°C)": [25, 35, 45,"..."],
+            "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
+            "Volumen en el Tanque (mL/s)" : [200, 400, 500,"..."],
+            "RPM": [60, 60, 60,"..."]
         })
     
     # 5. Horquillas - Vapor
     elif "Horquillas" in practica and "Vapor" in practica:
     
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "T Fluido (°C)": [25, 40, 55],
-            "Presión Vapor (bar)": [2, 2, 2]
+            "Longitud (m)": [0, 1, 2,"..."],
+            "Temperatura Fluido Frio (°C)": [25, 40, 55,"..."],
+            "Flujo Alimentación Fluido Frio (mL/s)":  [200],
+            "Temperatura Entrada Vapor (°C)": [115, 115, 115,"..."]
         })
     
     # 6. Horquillas - Agua Caliente
     elif "Horquillas" in practica and "Agua Caliente" in practica:
     
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "T Agua Entrada (°C)": [80, 80, 80],
-            "T Agua Salida (°C)": [70, 68, 65],
-            "T Producto (°C)": [25, 40, 55]
+            "Longitud (m)": [0, 1, 2,"..."],
+            "Temperatura Fluido Frio (°C)": [25, 40, 55,"..."],
+            "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200, 200,"..."],
+            "Temperatura Fluido Caliente (°C)": [25, 40, 55,"..."],
+            "Flujo Alimentación Fluido Frio (mL/s)":  [200, 200, 200,"..."],
         })
     
     # 7. Tubos y Coraza - Vapor
