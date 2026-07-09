@@ -375,8 +375,7 @@ def documentacion():
 
     with col3:
         if st.button("Diagrama de flujo", width="stretch"):
-            st.session_state.pdf_actual = None
-            st.write("Proximamente...")
+            st.session_state.pdf_actual = "flujo.pdf"
     # Mostrar únicamente el PDF seleccionado
     if st.session_state.pdf_actual is not None:
         with open(st.session_state.pdf_actual, "rb") as f:
