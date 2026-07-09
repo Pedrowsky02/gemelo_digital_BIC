@@ -466,36 +466,11 @@ def guia_usuario():
         st.markdown(r"""
         ### Tanque Agitado Semibatch
     
-        En esta configuración existe acumulación simultánea de masa y energía debido a la alimentación continua de agua.
-    
-        El balance de energía es:
-    
-        $$
-        M C_p \frac{dT}{dt}
-        =
-        \dot m C_p (T_{in}-T)
-        +
-        U A (T_{sat}-T)
-        $$
-    
-        donde:
-    
-        - $\dot m$: flujo másico de alimentación [kg/s]
-        - $T_{in}$: temperatura del agua de entrada [°C]
-        - $M$: masa instantánea dentro del tanque [kg]
-    
-        Reordenando:
-    
-        $$
-        \frac{dT}{dt}
-        =
-        \frac{
-        \dot m C_p (T_{in}-T)
-        +
-        U A (T_{sat}-T)
-        }
-        {M C_p}
-        $$
+        En esta configuración existe acumulación simultánea de masa y energía debido a la alimentación continua de agua. El balance de energía se plantea sobre 
+        la energía acumulada dentro del tanque: $$ \frac{d}{dt}(M C_p T) = \dot m C_p T_{in} + U A (T_{sat}-T) $$ donde: - $\dot m$: flujo másico de alimentación
+        [kg/s] - $T_{in}$: temperatura del agua de entrada [°C] - $M$: masa instantánea dentro del tanque [kg] Aplicando la derivada del producto (considerando $C_p$ constante): 
+        $$ M C_p \frac{dT}{dt} + C_p T \frac{dM}{dt} = \dot m C_p T_{in} + U A (T_{sat}-T) $$ Para un sistema semibatch sin descarga: $$ \frac{dM}{dt} = \dot m $$ Reordenando: 
+        $$ \frac{dT}{dt} = \frac{ \dot m C_p (T_{in}-T) + U A (T_{sat}-T) } {M C_p} $$
     
         La masa dentro del tanque cambia continuamente según:
     
