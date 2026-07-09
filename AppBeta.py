@@ -504,13 +504,7 @@ def guia_usuario():
     
             La energía acumulada dentro del tanque se expresa como:
     
-            $$
-            \frac{d}{dt}(MC_pT)
-            =
-            \dot m C_p T_{in}
-            +
-            UA(T_{sat}-T)
-            $$
+            $$ \frac{d}{dt}(M C_pT) = \dot m C_p T_{in} + UA(T_{sat}-T) $$
     
             donde:
     
