@@ -479,6 +479,7 @@ def guia_usuario():
         Aplicando la derivada del producto (considerando $C_p$ constante): 
         
         $$ M C_p \frac{dT}{dt} + C_p T \frac{dM}{dt} = \dot m C_p T_{in} + U A (T_{sat}-T) $$ 
+        
         Para un sistema semibatch sin descarga: 
         
         $$ \frac{dM}{dt} = \dot m $$ 
