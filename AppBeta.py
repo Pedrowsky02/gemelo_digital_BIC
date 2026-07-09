@@ -430,7 +430,6 @@ def guia_usuario():
 
     if st.session_state.equipo_teoria == "Tanque":
     
-    
         col1, col2 = st.columns(2)
     
         with col1:
@@ -575,9 +574,112 @@ def guia_usuario():
             U=f(Q)
             $$
             """)
-    
-    
+    if st.session_state.equipo_teoria == "Horquillas":
+        st.markdown(r"""
+        ### Intercambiador de Tubos Concéntricos (Horquillas)
+
+        La simulación se basa en balances diferenciales de energía realizados sobre un elemento de longitud del intercambiador.
+
+        #### Coeficiente global de transferencia de calor
+
+        La transferencia de calor entre los fluidos se calcula mediante:
+
+        $$
+        Q = UA\Delta T
+        $$
+
+        donde:
+
+        - $U$: coeficiente global de transferencia de calor [W/m²K]
+        - $A$: área de transferencia [m²]
+        - $\Delta T$: diferencia local de temperatura entre fluidos
         
+        El coeficiente global se calcula a partir de las resistencias convectivas interna y externa:
+
+        $$
+        U=
+        \left(
+        \frac{1}{h_o}
+        +
+        \frac{A_o}{A_i h_i}
+        \right)^{-1}
+        $$
+        
+        donde:
+        
+        - $h_i$: coeficiente convectivo interno
+        - $h_o$: coeficiente convectivo externo
+        - $A_i$: área interna de transferencia
+        - $A_o$: área externa de transferencia
+        
+        Experimentalmente, los coeficientes convectivos dependen del régimen de flujo y pueden obtenerse mediante correlaciones empíricas en función de números adimensionales como Reynolds, Prandtl y Nusselt.
+        
+        #### Configuración con Vapor
+        
+        Cuando se utiliza vapor como utilidad térmica se asume condensación a temperatura constante.
+        
+        El balance diferencial conduce a:
+        
+        $$
+        \frac{dt}{dx}
+        =
+        \frac{UA_p}
+        {\dot m C_p}
+        (T_s-t)
+        $$
+        
+        donde:
+        
+        - $t$: temperatura del agua
+        - $T_s$: temperatura del vapor
+        - $x$: posición axial
+        - $A_p$: área de transferencia por unidad de longitud
+        
+        La ecuación diferencial se resuelve numéricamente mediante Runge-Kutta de cuarto orden (RK4).
+
+        #### Configuración con Agua Caliente
+
+        Cuando ambos fluidos modifican su temperatura a lo largo del intercambiador, el modelo considera simultáneamente transferencia de calor y balance energético entre corrientes.
+
+        Para flujo paralelo y contraflujo se resuelve:
+        
+        $$
+        \frac{dt}{dx}
+        =
+        \frac{UA_p}
+        {\dot m_f C_p}
+        (T-t)
+        $$
+        
+        donde:
+        
+        - $t$: temperatura del fluido frío
+        - $T$: temperatura del fluido caliente
+        
+        El perfil térmico del fluido caliente se obtiene a partir del balance global de energía:
+        
+        $$
+        \dot m_f C_p (t_2-t_1)
+        =
+        \dot m_c C_p (T_1-T_2)
+        $$
+        
+        #### Resolución numérica
+        
+        La temperatura se calcula a lo largo de la longitud del intercambiador:
+        
+        $$
+        0 \le x \le L
+        $$
+        
+        utilizando el método de Runge-Kutta de cuarto orden (RK4).
+        
+        En configuraciones con agua caliente se emplea adicionalmente un esquema iterativo de bisección para satisfacer simultáneamente las condiciones de entrada y salida requeridas para flujo paralelo o contraflujo.
+        
+        Las regresiones realizadas con datos experimentales permiten relacionar los coeficientes convectivos y el coeficiente global de transferencia con las condiciones reales de operación del intercambiador.
+        """)
+            
+            
     
 def datos():
     st.write("# Sube tus Datos")
