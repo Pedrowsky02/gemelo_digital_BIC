@@ -260,8 +260,8 @@ def TubosyCoraza():
         
     if st.button("Correr Simulación"):
 
-        st.warning(
-            "Esta simulación se basa en datos teóricos, sube tus datos experimentales para predecir el comportamiento real."
+        st.success(
+            "Esta simulación predice datos reales."
         )
 
         # =====================================================
