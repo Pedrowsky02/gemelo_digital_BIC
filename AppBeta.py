@@ -495,7 +495,7 @@ def guia_usuario():
     
         with col2:
     
-            st.markdown("""
+            st.markdown(r"""
             ### Tanque Agitado Semibatch
     
             En esta configuración existe acumulación simultánea de masa y energía debido a la alimentación continua de agua.
