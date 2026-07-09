@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 
 def TubosyCoraza():
+    def M(t):
+        return 25/1000*PropsSI('D','T',t+273.15,'P',560/760*101325,'Water')
+    def Cp(t):
+        return PropsSI('C','T',t+273.15,'P',560/760*101325,'Water')
+    def k(t):
+        return PropsSI('L','T',t+273.15,'P',560/760*101325,'Water')
+    def rho(t):
+        return PropsSI('D','T',t+273.15,'P',560/760*101325,'Water')
+    def mu(t):
+        return PropsSI('V','T',t+273.15,'P',560/760*101325,'Water') 
+    Cp_prom = (Cp(17)+Cp(91))/2
     
     # ======================================================
     # PROPIEDADES GEOMÉTRICAS TUBOS Y CORAZA
@@ -26,7 +37,6 @@ def TubosyCoraza():
 
     Cp_prom = (Cp(20)+Cp(80))/2
     rho_prom = (rho(20)+rho(80))/2
-
 
     if "Configuracion_TC" not in st.session_state:
         st.session_state.Configuracion_TC = None
@@ -124,6 +134,26 @@ def TubosyCoraza():
                 st.rerun()
 
     else:
+        if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
+            ho_vapor = 1200
+            hi_agua = 900
+            ho_agua = 700
+
+        elif st.session_state.Configuracion_TC == "Pitch Triangular - 2 Paso":
+            ho_vapor = 1400
+            hi_agua = 1100
+            ho_agua = 850
+
+        elif st.session_state.Configuracion_TC == "Pitch Triangular - Sin Bafles":
+            ho_vapor = 700
+            hi_agua = 600
+            ho_agua = 350
+
+        elif st.session_state.Configuracion_TC == "Pitch Cuadrado - 1 Paso":
+            ho_vapor = 1000
+            hi_agua = 850
+            ho_agua = 600
+`
         if st.button("Cambiar configuración",width="stretch"):
             st.session_state.Configuracion_TC = None
             st.rerun()
