@@ -33,8 +33,8 @@ def TubosyCoraza():
                 "16.83 cm",
                 "Acero inoxidable 304",
                 "60 cm",
-                "2.13 cm",
                 "1.708 cm",
+                "2.13 cm",
                 '1/2" Sch 10',
                 "Acero inoxidable 304"            ]
             })
