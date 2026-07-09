@@ -376,7 +376,7 @@ def TubosyCoraza():
                 st.warning(
                     f"El fluido frío alcanzó la temperatura de ebullición "
                     f"({T_eb:.1f} °C) a una longitud aproximada de "
-                    f"{L_evap:.5f} m."
+                    f"{L_evap:.3f} m."
                 )
     
                 st.warning(
@@ -409,6 +409,7 @@ def TubosyCoraza():
                         f"Vapor: "
                         f"T = {T_sat:.1f} °C"
                     )
+            st.info("El perfil de temperatura se obtiene a partir de datos teóricos, las unicas temperaturas representativas son las temperaturas de entrada y salida del equipo. ")
     
         # =====================================================
         # AGUA CALIENTE
