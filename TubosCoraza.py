@@ -593,7 +593,7 @@ def TubosyCoraza():
             with col1:
                 st.info(
                     f"Fluido frío: "
-                    f"t₁ = {temp.1f} °C , "
+                    f"t₁ = {temp[0]:.1f} °C , "
                     f"t₂ = {temp[-1]:.1f} °C"
                 )
             with col2:
@@ -601,12 +601,12 @@ def TubosyCoraza():
                     st.info(
                         f"Fluido caliente: "
                         f"T₁ = {Temp[-1]:.1f} °C , "
-                        f"T₂ = {Temp.1f} °C"
+                        f"T₂ = {Temp[0]:.1f} °C"
                         )
                 else:
                     st.info(
                         f"Fluido caliente: "
-                        f"T₁ = {Temp.1f} °C , "
+                        f"T₁ = {Temp[0]:.1f} °C , "
                         f"T₂ = {Temp[-1]:.1f} °C"
                     )
             st.info(
