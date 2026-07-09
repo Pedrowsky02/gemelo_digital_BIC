@@ -398,6 +398,8 @@ def guia_usuario():
 
     
     st.divider()
+    
+    st.subheader("Fundamento teórico de la simulación")
 
     # ==========================================
     # SELECCIÓN DE EQUIPO
@@ -405,6 +407,7 @@ def guia_usuario():
 
     if "equipo_teoria" not in st.session_state:
         st.session_state.equipo_teoria = "Tanque"
+    
     
     col_eq1, col_eq2, col_eq3 = st.columns(3)
 
@@ -427,7 +430,6 @@ def guia_usuario():
 
     if st.session_state.equipo_teoria == "Tanque":
     
-        st.subheader("Fundamento teórico de la simulación")
     
         col1, col2 = st.columns(2)
     
