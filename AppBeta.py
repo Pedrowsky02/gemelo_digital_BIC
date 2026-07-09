@@ -397,7 +397,7 @@ def guia_usuario():
     st.video("https://youtu.be/SD0bnFhfyRk")
 def datos():
     st.write("# Sube tus Datos")
-    practica = st.selectbox("Seleccione la práctica de la cual posee datos:",[
+    practica = st.selectbox("Seleccione el tipo de datos con el cual vas a alimentar el Gemelo Digital:",[
         "Tanque Agitado - Sin Agitación - Serpentin - Batch",
         "Tanque Agitado - Sin Agitación - Serpentin - Semibatch",
         "Tanque Agitado - Sin Agitación - Chaqueta - Batch",
@@ -436,9 +436,10 @@ def datos():
     elif "Tanque Agitado" in practica and "Sin Agitación" in practica and "Semibatch" in practica:
 
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "Volumen (L)": [10, 12, 14],
-            "T Producto (°C)": [25, 33, 40]
+            "Tiempo (s)": [0, 10, 20, "..."],
+            "Temperatura Tanque (°C)": [25, 35, 45,"..."],
+            "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
+            "Volumen en el Tanque (mL)" : [200, 400, 500,"..."],
         })
 
     # 3. Tanque Agitado - Agitación Mecánica - Batch
