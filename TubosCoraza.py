@@ -136,10 +136,10 @@ def TubosyCoraza():
                 st.session_state.Configuracion_TC = "Pitch Cuadrado - 1 Paso"
                 st.rerun()
 
-     else:
-        if st.button("Cambiar configuración",width="stretch"):
-            st.session_state.Configuracion_TC = None
-            st.rerun()
+     # else:
+     #    if st.button("Cambiar configuración",width="stretch"):
+     #        st.session_state.Configuracion_TC = None
+     #        st.rerun()
 
 #         if st.session_state.Configuracion_TC == "Pitch Triangular - 1 Paso":
 #             ho_vapor = 1200
