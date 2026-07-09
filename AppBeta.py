@@ -435,9 +435,8 @@ def guia_usuario():
     
         #### Coeficiente global de transferencia de calor
     
-        Actualmente la simulación emplea valores constantes de $U$ para cada configuración.
     
-        Sin embargo, experimentalmente el coeficiente global no es constante y se calcula mediante correlaciones empíricas ajustadas a partir de datos experimentales.
+        Experimentalmente el coeficiente global de transferencia no es constante y se calcula mediante correlaciones empíricas ajustadas a partir de datos experimentales.
     
         **Sin agitación**
     
@@ -510,9 +509,7 @@ def guia_usuario():
     
         #### Coeficiente global de transferencia de calor
     
-        Al igual que en Batch, actualmente se utilizan valores constantes de $U$.
-    
-        No obstante, el coeficiente real depende de las condiciones hidrodinámicas existentes en el tanque.
+        El coeficiente global de transferencia real depende de las condiciones hidrodinámicas existentes en el tanque.
     
         **Sin agitación**
     
