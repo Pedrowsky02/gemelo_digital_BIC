@@ -341,7 +341,7 @@ def TubosyCoraza():
             # GRÁFICA
             # ==========================================
     
-            n_puntos = 50
+            n_puntos = 200
             paso = max(1, len(Longitud)//n_puntos)
     
             Longitud_plot = Longitud[::paso]
