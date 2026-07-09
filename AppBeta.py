@@ -395,6 +395,9 @@ def guia_usuario():
     st.write("# Guia Usuario")
     st.write("## Caracteristicas y Guia de Operación del Equipo")
     st.video("https://youtu.be/SD0bnFhfyRk")
+
+    st.write("## Detalle de ecuaciones")
+
 def datos():
     st.write("# Sube tus Datos")
     practica = st.selectbox("Seleccione el tipo de datos con el cual vas a alimentar el Gemelo Digital:",[
