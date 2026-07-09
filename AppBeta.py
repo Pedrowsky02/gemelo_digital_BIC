@@ -397,7 +397,7 @@ def guia_usuario():
     st.video("https://youtu.be/SD0bnFhfyRk")
 def datos():
     st.write("# Sube tus Datos")
-    st.selectbox("Seleccione la práctica de la cual posee datos:",[
+    practica = st.selectbox("Seleccione la práctica de la cual posee datos:",[
         "Tanque Agitado - Sin Agitación - Serpentin - Batch",
         "Tanque Agitado - Sin Agitación - Serpentin - Semibatch",
         "Tanque Agitado - Sin Agitación - Chaqueta - Batch",
