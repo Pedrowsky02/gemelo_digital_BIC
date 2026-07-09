@@ -396,7 +396,156 @@ def guia_usuario():
     st.write("## Caracteristicas y Guia de Operación del Equipo")
     st.video("https://youtu.be/SD0bnFhfyRk")
 
-    st.write("## Detalle de ecuaciones")
+    
+    st.divider()
+    st.subheader("Fundamento teórico de la simulación")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        st.markdown(r"""
+        ### Tanque Agitado Batch
+
+        La simulación se basa en un balance de energía transitorio sobre un sistema cerrado:
+    
+        $$
+        M C_p \frac{dT}{dt}=U A (T_{sat}-T)
+        $$
+    
+        donde:
+    
+        - $M$: masa de agua en el tanque [kg]
+        - $C_p$: capacidad calorífica del agua [J/kg·K]
+        - $U$: coeficiente global de transferencia de calor [W/m²·K]
+        - $A$: área de transferencia de calor [m²]
+        - $T_{sat}$: temperatura del vapor [°C]
+        - $T$: temperatura del agua en el tanque [°C]
+    
+        Reordenando:
+    
+        $$
+        \frac{dT}{dt}
+        =
+        \frac{U A (T_{sat}-T)}
+        {M C_p}
+        $$
+    
+        Esta ecuación diferencial se resuelve numéricamente mediante el método de Runge-Kutta de cuarto orden (RK4).
+    
+        #### Coeficiente global de transferencia de calor
+    
+        Actualmente la simulación emplea valores constantes de $U$ para cada configuración.
+    
+        Sin embargo, experimentalmente el coeficiente global no es constante y se calcula mediante correlaciones empíricas ajustadas a partir de datos experimentales.
+    
+        **Sin agitación**
+    
+        La transferencia de calor ocurre por convección natural dentro del tanque, por lo que el coeficiente depende principalmente de la diferencia de temperatura:
+    
+        $$
+        U=f(T_{sat}-T)
+        $$
+    
+        **Con agitación mecánica**
+    
+        La convección pasa a ser forzada por el agitador, por lo que el coeficiente depende principalmente de la velocidad de agitación:
+    
+        $$
+        U=f(N)
+        $$
+    
+        donde:
+    
+        - $N$ = velocidad de giro del agitador (RPM)
+
+        Las regresiones realizadas con los datos experimentales buscan precisamente determinar la relación entre $U$ y la variable operativa correspondiente.
+        """)
+        
+    with col2:
+    
+        st.markdown(r"""
+        ### Tanque Agitado Semibatch
+    
+        En esta configuración existe acumulación simultánea de masa y energía debido a la alimentación continua de agua.
+    
+        El balance de energía es:
+    
+        $$
+        M C_p \frac{dT}{dt}
+        =
+        \dot m C_p (T_{in}-T)
+        +
+        U A (T_{sat}-T)
+        $$
+    
+        donde:
+    
+        - $\dot m$: flujo másico de alimentación [kg/s]
+        - $T_{in}$: temperatura del agua de entrada [°C]
+        - $M$: masa instantánea dentro del tanque [kg]
+    
+        Reordenando:
+    
+        $$
+        \frac{dT}{dt}
+        =
+        \frac{
+        \dot m C_p (T_{in}-T)
+        +
+        U A (T_{sat}-T)
+        }
+        {M C_p}
+        $$
+    
+        La masa dentro del tanque cambia continuamente según:
+    
+        $$
+        \frac{dM}{dt}
+        =
+        \dot m
+        $$
+    
+        y la temperatura se calcula mediante integración numérica con RK4.
+    
+        #### Coeficiente global de transferencia de calor
+    
+        Al igual que en Batch, actualmente se utilizan valores constantes de $U$.
+    
+        No obstante, el coeficiente real depende de las condiciones hidrodinámicas existentes en el tanque.
+    
+        **Sin agitación**
+    
+        Predomina la convección natural:
+    
+        $$
+        U=f(T_{sat}-T)
+        $$
+    
+        **Con alimentación continua**
+    
+        El ingreso del fluido genera corrientes internas y mezclado adicional, produciendo convección forzada incluso sin agitador mecánico.
+    
+        En este caso:
+    
+        $$
+        U=f(\dot m)
+        $$
+    
+        o equivalentemente:
+    
+        $$
+        U=f(Q)
+        $$
+    
+        donde:
+    
+        - $\dot m$ = flujo másico de alimentación
+        - $Q$ = caudal de alimentación
+    
+        Las regresiones realizadas con los datos experimentales permiten obtener la relación funcional entre $U$ y el flujo de alimentación utilizado en la práctica.
+        """)
+    
 
 def datos():
     st.write("# Sube tus Datos")
