@@ -16,29 +16,29 @@ def TubosyCoraza():
         return PropsSI('V','T',t+273.15,'P',560/760*101325,'Water') 
     Cp_prom = (Cp(17)+Cp(91))/2
     
-#     # ======================================================
-#     # PROPIEDADES GEOMÉTRICAS TUBOS Y CORAZA
-#     # ======================================================
+    # ======================================================
+    # PROPIEDADES GEOMÉTRICAS TUBOS Y CORAZA
+    # ======================================================
 
-#     L = 0.60  # m
+    L = 0.60  # m
 
-#     # Coraza
-#     Di_coraza = 0.1615
+    # Coraza
+    Di_coraza = 0.1615
 
-#     # Tubos
-#     Di_tubo = 0.01708
-#     Do_tubo = 0.02130
+    # Tubos
+    Di_tubo = 0.01708
+    Do_tubo = 0.02130
 
-#     # Número de tubos
-#     Ntubos = 16
+    # Número de tubos
+    Ntubos = 16
 
-#     Ai = Ntubos*np.pi*Di_tubo*L
-#     Ao = Ntubos*np.pi*Do_tubo*L
+    Ai = Ntubos*np.pi*Di_tubo*L
+    Ao = Ntubos*np.pi*Do_tubo*L
 
-#     Ap = Ao/L
+    Ap = Ao/L
 
-#     Cp_prom = (Cp(20)+Cp(80))/2
-#     rho_prom = (rho(20)+rho(80))/2
+    Cp_prom = (Cp(20)+Cp(80))/2
+    rho_prom = (rho(20)+rho(80))/2
 
 #     if "Configuracion_TC" not in st.session_state:
 #         st.session_state.Configuracion_TC = None
