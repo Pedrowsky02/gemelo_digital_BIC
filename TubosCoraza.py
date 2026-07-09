@@ -7,9 +7,7 @@ def TubosyCoraza():
 
     # Pantalla de selección
     if st.session_state.Configuracion_TC is None:
-
-        
-     st.title("Intercambiadores de Tubos y Coraza")
+        st.title("Intercambiadores de Tubos y Coraza")
 
         # TABLA 1: Datos comunes
         st.subheader("Especificaciones Generales")
@@ -37,15 +35,14 @@ def TubosyCoraza():
                 "2.13 cm",
                 "1.708 cm",
                 '1/2" Sch 10',
-                "Acero inoxidable 304"
-            ]
-        })
-    
+                "Acero inoxidable 304"            ]
+            })
+        
         st.table(datos_tc)
-    
+        
         # TABLA 2: Diferencias
         st.subheader("Configuraciones Disponibles")
-    
+        
         comparacion_tc = pd.DataFrame({
             "Configuración": [
                 "Triangular 1 Paso",
@@ -63,13 +60,13 @@ def TubosyCoraza():
             "Tubos": [16, 8, 16, 16],
             "Bafles": [9, 9, 0, 9]
         })
-    
+        
         st.table(comparacion_tc)
-    
+        
         st.divider()
-    
+        
         st.text("Seleccione la configuración")
-
+    
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
