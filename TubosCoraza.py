@@ -416,8 +416,212 @@ def TubosyCoraza():
         # =====================================================
     
         elif MetCal == "Agua Caliente":
-    
-            pass
-    
+
+            w = QAF/1e6 * rho_prom
+            W = QAC/1e6 * rho_prom
+
+            U = (
+                (hi_agua*Ai/Ao)**(-1)
+                +
+                ho_agua**(-1)
+            )**(-1)
+
+            # ==========================================
+            # CONTRAFLUJO
+            # ==========================================
         
+            if ConfigFlow == "Contraflujo":
+        
+                t1 = TAF
+        
+                T2_min = t1
+                T2_max = TAC
+        
+                tol = 1e-3
+                error = 1
+        
+                while error > tol:
+        
+                    T2 = 0.5*(T2_min + T2_max)
+        
+                    def f(t):
+        
+                        return (
+                            U*Ap/(w*Cp_prom)
+                        )*(
+                            T2 + w/W*(t-t1) - t
+                        )
+        
+                    h = 0.001
+        
+                    x = 0
+                    t = t1
+        
+                    Longitud = [0]
+                    temp = [t]
+        
+                    while x < L:
+        
+                        k1 = f(t)
+                        k2 = f(t + 0.5*h*k1)
+                        k3 = f(t + 0.5*h*k2)
+                        k4 = f(t + h*k3)
+        
+                        t = t + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+        
+                        x += h
+        
+                        temp.append(t)
+                        Longitud.append(x)
+        
+                    t2 = temp[-1]
+
+                    T1_calc = T2 + w/W*(t2-t1)
+        
+                    error = abs(T1_calc - TAC)
+        
+                    if T1_calc > TAC:
+                        T2_max = T2
+                    else:
+                        T2_min = T2
+        
+                Temp = [
+                    T2 + (w/W)*(t-t1)
+                    for t in temp
+                ]
+        
+            # ==========================================
+            # PARALELO
+            # ==========================================
+        
+            elif ConfigFlow == "Paralelo":
+        
+                t1 = TAF
+                T1 = TAC
+        
+                t2_min = t1
+                t2_max = T1
+        
+                tol = 1e-3
+                error = 1
+        
+                while error > tol:
+        
+                    t2 = 0.5*(t2_min + t2_max)
+        
+                    T2 = T1 - (w/W)*(t2-t1)
+        
+                    def f(t):
+        
+                        return (
+                            U*Ap/(w*Cp_prom)
+                            )*(
+                            T2 + (w/W)*(t2-t) - t
+                            )
+        
+                    h = 0.001
+        
+                    x = 0
+                    t = t1
+        
+                    Longitud = [0]
+                    temp = [t]
+        
+                    while x < L:
+        
+                        k1 = f(t)
+                        k2 = f(t + 0.5*h*k1)
+                        k3 = f(t + 0.5*h*k2)
+                        k4 = f(t + h*k3)
+        
+                        t = t + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+        
+                        x += h
+        
+                        temp.append(t)
+                        Longitud.append(x)
+        
+                    t2_calc = temp[-1]
+        
+                    error = abs(t2_calc - t2)
+        
+                    if t2_calc > t2:
+                        t2_min = t2
+                    else:
+                        t2_max = t2
+        
+                Temp = [
+                    T2 + (w/W)*(t2-t)
+                    for t in temp
+                ]
+        
+            # ==========================================
+            # GRÁFICA
+            # ==========================================
+        
+            n_puntos = 200
+            paso = max(1, len(Longitud)//n_puntos)
+        
+            Longitud_plot = Longitud[::paso]
+            temp_plot = temp[::paso]
+            Temp_plot = Temp[::paso]
+        
+            placeholder = st.empty()
+        
+            for i in range(2, len(Longitud_plot)+1):
+        
+                df = pd.DataFrame({
+                    "Longitud (m)": Longitud_plot[:i],
+                    "Fluido frío (°C)": temp_plot[:i],
+                    "Fluido caliente (°C)": Temp_plot[:i]
+                })
+        
+                placeholder.line_chart(
+                    df,
+                    x="Longitud (m)",
+                    y=[
+                        "Fluido frío (°C)",
+                        "Fluido caliente (°C)"
+                        ]
+                )
+        
+            # ==========================================
+            # RESULTADOS
+            # ==========================================
+        
+            col1, col2 = st.columns(2)
+        
+            with col1:
+        
+                st.info(
+                    f"Fluido frío: "
+                    f"t₁ = {temp.1f} °C , "
+                    f"t₂ = {temp[-1]:.1f} °C"
+                )
+        
+            with col2:
+        
+                if ConfigFlow == "Contraflujo":
+        
+                    st.info(
+                        f"Fluido caliente: "
+                        f"T₁ = {Temp[-1]:.1f} °C , "
+                        f"T₂ = {Temp.1f} °C"
+                        )
+    
+                else:
+        
+                    st.info(
+                        f"Fluido caliente: "
+                        f"T₁ = {Temp.1f} °C , "
+                        f"T₂ = {Temp[-1]:.1f} °C"
+                    )
+        
+            st.info(
+                "El perfil de temperatura se obtiene a partir de un modelo teórico. "
+                "Las temperaturas representativas para comparación experimental son "
+                "principalmente las temperaturas de entrada y salida del intercambiador."
+            )
+            
                 
+                    
