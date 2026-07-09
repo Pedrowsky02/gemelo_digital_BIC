@@ -472,8 +472,8 @@ def datos():
             "Flujo Alimentación Fluido Frio (mL/s)":  [200,200,200,"..."],
             "Temperatura Entrada Vapor (°C)": [115, 115, 115,"..."]
         })
-        st.text("El flujo de alimentación y la temperatura de entrada del vapor deben permanecer constantes 
-                a lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice")
+        st.text("El flujo de alimentación y la temperatura de entrada del vapor deben permanecer constantesa lo largo de la práctica en la medida de lo posible, recuerda tomar los datos cuando el equipo se estabilice")
+    
     
     # 6. Horquillas - Agua Caliente
     elif "Horquillas" in practica and "Agua Caliente" in practica:
