@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from CoolProp.CoolProp import PropsSI
+import numpy as np
 
 
 def TubosyCoraza():
@@ -218,7 +219,6 @@ def TubosyCoraza():
 #                 T_sat = st.slider("Especifique la temperatura de ingreso del vapor (°C)",min_value=93,max_value=150,step=1)
 #             if st.button("Correr Simulación") == True:
 #                 pass
-
 
 #         elif st.session_state.Configuracion_TC == "Pitch Cuadrado - 1 Paso":
 #             col1,col2 = st.columns(2)
