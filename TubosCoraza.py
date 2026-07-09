@@ -2,6 +2,31 @@ import streamlit as st
 import pandas as pd
 
 def TubosyCoraza():
+    
+    # ======================================================
+    # PROPIEDADES GEOMÉTRICAS TUBOS Y CORAZA
+    # ======================================================
+
+    L = 0.60  # m
+
+    # Coraza
+    Di_coraza = 0.1615
+
+    # Tubos
+    Di_tubo = 0.01708
+    Do_tubo = 0.02130
+
+    # Número de tubos
+    Ntubos = 16
+
+    Ai = Ntubos*np.pi*Di_tubo*L
+    Ao = Ntubos*np.pi*Do_tubo*L
+
+    Ap = Ao/L
+
+    Cp_prom = (Cp(20)+Cp(80))/2
+    rho_prom = (rho(20)+rho(80))/2
+
 
     if "Configuracion_TC" not in st.session_state:
         st.session_state.Configuracion_TC = None
