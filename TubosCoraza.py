@@ -257,13 +257,166 @@ def TubosyCoraza():
         # BOTÓN DE SIMULACIÓN
         # ==========================================
     
-        if st.button("Correr Simulación"):
+        
+    if st.button("Correr Simulación"):
+
+        st.warning(
+            "Esta simulación se basa en datos teóricos, sube tus datos experimentales para predecir el comportamiento real."
+        )
+
+        # =====================================================
+        # VAPOR POR LOS TUBOS
+        # =====================================================
+
+        if MetCal == "Vapor":
+
+            # Fluido frío por coraza
+            w = QAF/1e6 * rho_prom
+
+            # Para vapor se desprecia la resistencia interna
+            U = ho_vapor
+
+            t1 = TAF
+
+            # Temperatura de ebullición a presión de operación
+            T_eb = PropsSI(
+                'T',
+                'P',
+                560*101325/760,
+                'Q',
+                0,
+                'Water'
+            ) - 273.15
     
-            # aquí irá el cálculo de U
-            # aquí irá RK4
-            # aquí irá bisección
-            # aquí irá la gráfica
+            def f(t):
+    
+                return (
+                    U*Ap/(w*Cp_prom)
+                )*(
+                    T_sat - t
+                )
+    
+            h = 0.001
+    
+            x = 0
+            t = t1
+    
+            Longitud = [0]
+            temp = [t]
+    
+            evaporacion = False
+            L_evap = None
+    
+            while x < L:
+    
+                k1 = f(t)
+                k2 = f(t + 0.5*h*k1)
+                k3 = f(t + 0.5*h*k2)
+                k4 = f(t + h*k3)
+    
+                t = t + (h/6)*(k1 + 2*k2 + 2*k3 + k4)
+    
+                x += h
+    
+                if t >= T_eb:
+    
+                    t = T_eb
+    
+                    temp.append(t)
+                    Longitud.append(x)
+    
+                    evaporacion = True
+                    L_evap = x
+    
+                    break
+    
+                temp.append(t)
+                Longitud.append(x)
+    
+            # Vapor a temperatura constante
+    
+            Temp = [T_sat for _ in Longitud]
+    
+            # ==========================================
+            # GRÁFICA
+            # ==========================================
+    
+            n_puntos = 50
+            paso = max(1, len(Longitud)//n_puntos)
+    
+            Longitud_plot = Longitud[::paso]
+            temp_plot = temp[::paso]
+            Temp_plot = Temp[::paso]
+    
+            placeholder = st.empty()
+    
+            for i in range(2, len(Longitud_plot)+1):
+    
+                df = pd.DataFrame({
+                    "Longitud (m)": Longitud_plot[:i],
+                    "Fluido frío (°C)": temp_plot[:i],
+                    "Vapor (°C)": Temp_plot[:i]
+                })
+    
+                placeholder.line_chart(
+                    df,
+                    x="Longitud (m)",
+                    y=[
+                        "Fluido frío (°C)",
+                        "Vapor (°C)"
+                    ]
+                )
+    
+            # ==========================================
+            # RESULTADOS
+            # ==========================================
+    
+            if evaporacion:
+    
+                st.warning(
+                    f"El fluido frío alcanzó la temperatura de ebullición "
+                    f"({T_eb:.1f} °C) a una longitud aproximada de "
+                    f"{L_evap:.2f} m."
+                )
+    
+                st.warning(
+                    "La simulación se detuvo en ese punto ya que, a partir de allí, "
+                    "comenzaría el cambio de fase."
+                )
+    
+                st.warning(
+                    "Se recomienda no operar el equipo bajo las condiciones "
+                    "especificadas. La generación de vapor en el lado originalmente "
+                    "destinado al agua líquida puede afectar el desempeño térmico "
+                    "y acelerar fenómenos de corrosión."
+                )
+    
+            else:
+    
+                col1, col2 = st.columns(2)
+    
+                with col1:
+    
+                    st.info(
+                        f"Fluido frío: "
+                        f"t₁ = {t1:.1f} °C , "
+                        f"t₂ = {temp[-1]:.1f} °C"
+                    )
+    
+                with col2:
+    
+                    st.info(
+                        f"Vapor: "
+                        f"T = {T_sat:.1f} °C"
+                    )
+    
+        # =====================================================
+        # AGUA CALIENTE
+        # =====================================================
+    
+        elif MetCal == "Agua Caliente":
     
             pass
     
+        
                 
