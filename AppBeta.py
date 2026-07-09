@@ -409,17 +409,17 @@ def datos():
         "Horquillas - Vapor",
         "Horquillas - Agua Caliente - Paralelo",
         "Horquillas - Agua Caliente - Contraflujo",
-        "Tubos y Coraza - Triangular 1P - Vapor"
-        "Tubos y Coraza - Triangular 1P - Agua Caliente - Paralelo"
-        "Tubos y Coraza - Triangular 1P - Agua Caliente - Contraflujo"
-        "Tubos y Coraza - Triangular 2P - Vapor"
-        "Tubos y Coraza - Triangular 2P - Agua Caliente - Paralelo"
-        "Tubos y Coraza - Triangular 2P - Agua Caliente - Contraflujo"
-        "Tubos y Coraza - Triangular Sin Bafles - Vapor"
-        "Tubos y Coraza - Triangular Sin Bafles - Agua Caliente - Paralelo"
-        "Tubos y Coraza - Triangular Sin Bafles - Agua Caliente - Contraflujo"
-        "Tubos y Coraza - Cuadrado 1P - Vapor"
-        "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Paralelo"
+        "Tubos y Coraza - Triangular 1P - Vapor",
+        "Tubos y Coraza - Triangular 1P - Agua Caliente - Paralelo",
+        "Tubos y Coraza - Triangular 1P - Agua Caliente - Contraflujo",
+        "Tubos y Coraza - Triangular 2P - Vapor",
+        "Tubos y Coraza - Triangular 2P - Agua Caliente - Paralelo",
+        "Tubos y Coraza - Triangular 2P - Agua Caliente - Contraflujo",
+        "Tubos y Coraza - Triangular Sin Bafles - Vapor",
+        "Tubos y Coraza - Triangular Sin Bafles - Agua Caliente - Paralelo",
+        "Tubos y Coraza - Triangular Sin Bafles - Agua Caliente - Contraflujo",
+        "Tubos y Coraza - Cuadrado 1P - Vapor",
+        "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Paralelo",
         "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Contraflujo"
     ])
     st.components.v1.iframe(
