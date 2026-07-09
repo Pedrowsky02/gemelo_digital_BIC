@@ -427,9 +427,9 @@ def datos():
     if "Tanque Agitado" in practica and "Sin Agitación" in practica and "Batch" in practica:
 
         ejemplo = pd.DataFrame({
-            "Tiempo (min)": [0, 10, 20],
-            "T Producto (°C)": [25, 35, 45],
-            "T Servicio (°C)": [80, 80, 80]
+            "Tiempo (s)": [0, 10, 20, "..."],
+            "Temperatura Tanque (°C)": [25, 35, 45,"..."],
+            "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."]
         })
 
     # 2. Tanque Agitado - Sin Agitación - Semibatch
