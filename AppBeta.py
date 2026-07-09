@@ -422,6 +422,86 @@ def datos():
         "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Paralelo",
         "Tubos y Coraza - Cuadrado 1P - Agua Caliente - Contraflujo"
     ])
+    
+    # 1. Tanque Agitado - Sin Agitación - Batch
+    if "Tanque Agitado" in practica and "Sin Agitación" in practica and "Batch" in practica:
+
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "T Producto (°C)": [25, 35, 45],
+            "T Servicio (°C)": [80, 80, 80]
+        })
+
+    # 2. Tanque Agitado - Sin Agitación - Semibatch
+    elif "Tanque Agitado" in practica and "Sin Agitación" in practica and "Semibatch" in practica:
+
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "Volumen (L)": [10, 12, 14],
+            "T Producto (°C)": [25, 33, 40]
+        })
+
+    # 3. Tanque Agitado - Agitación Mecánica - Batch
+    elif "Tanque Agitado" in practica and "Agitación Mecánica" in practica and "Batch" in practica:
+    
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "T Producto (°C)": [25, 38, 50],
+            "RPM": [100, 100, 100]
+        })
+    
+    # 4. Tanque Agitado - Agitación Mecánica - Semibatch
+    elif "Tanque Agitado" in practica and "Agitación Mecánica" in practica and "Semibatch" in practica:
+    
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "Volumen (L)": [10, 15, 20],
+            "RPM": [100, 100, 100],
+            "T Producto (°C)": [25, 38, 50]
+        })
+    
+    # 5. Horquillas - Vapor
+    elif "Horquillas" in practica and "Vapor" in practica:
+    
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "T Fluido (°C)": [25, 40, 55],
+            "Presión Vapor (bar)": [2, 2, 2]
+        })
+    
+    # 6. Horquillas - Agua Caliente
+    elif "Horquillas" in practica and "Agua Caliente" in practica:
+    
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "T Agua Entrada (°C)": [80, 80, 80],
+            "T Agua Salida (°C)": [70, 68, 65],
+            "T Producto (°C)": [25, 40, 55]
+        })
+    
+    # 7. Tubos y Coraza - Vapor
+    elif "Tubos y Coraza" in practica and "Vapor" in practica:
+    
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "T Producto (°C)": [25, 42, 58],
+            "Presión Vapor (bar)": [2, 2, 2]
+        })
+    
+    # 8. Tubos y Coraza - Agua Caliente
+    elif "Tubos y Coraza" in practica and "Agua Caliente" in practica:
+    
+        ejemplo = pd.DataFrame({
+            "Tiempo (min)": [0, 10, 20],
+            "T Coraza Entrada (°C)": [80, 80, 80],
+            "T Coraza Salida (°C)": [70, 68, 65],
+            "T Tubos Salida (°C)": [35, 48, 60]
+        })
+    
+    st.write("### Ejemplo del formato esperado")
+    st.table(ejemplo)
+
+    
     st.components.v1.iframe(
     "https://docs.google.com/forms/d/e/1FAIpQLSdpfqkv7PBYpbR74cKSxK2SJrt90G01Q6qqp5mAQ3to0Ok8Hg/viewform?embedded=true",
     height=500,
