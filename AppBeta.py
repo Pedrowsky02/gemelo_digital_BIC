@@ -613,9 +613,7 @@ def guia_usuario():
             - $h_o$: coeficiente convectivo externo
             - $A_i$: área interna de transferencia
             - $A_o$: área externa de transferencia
-            """)
-        with col2:
-            st.markdown(r"""
+
             Experimentalmente, los coeficientes convectivos dependen del régimen de flujo y pueden obtenerse mediante correlaciones empíricas en función de números adimensionales como Reynolds, Prandtl y Nusselt.
         
             #### Configuración con Vapor
@@ -632,6 +630,9 @@ def guia_usuario():
             (T_s-t)
             $$
         
+            """)
+        with col2:
+            st.markdown(r"""
             donde:
             
             - $t$: temperatura del agua
