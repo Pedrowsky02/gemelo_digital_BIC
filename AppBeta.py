@@ -440,7 +440,7 @@ def datos():
             "Tiempo (s)": [0, 10, 20, "..."],
             "Temperatura Tanque (°C)": [25, 35, 45,"..."],
             "Temperatura Entrada Vapor (°C)" : [120, 115, 118,"..."],
-            "Volumen en el Tanque (mL/s)" : [200, 400, 500,"..."]
+            "Volumen en el Tanque (mL/s)" : [200, 400, 500,"..."],
             "Agua Condensada Acumulada (mL)": [0, 5, 50,"..."]
         })
 
